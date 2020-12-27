@@ -1,18 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-child-wrapper',
-  template: `
-    <micro-app *axLazyElement="link" (emitDataToParent)="dataToParent($event)" [dataFromParent]="dataToChild"></micro-app>
-  `,
+  templateUrl:'./child-wrapper.component.html',
   styles: []
 })
 export class ChildWrapperComponent {
-  link: string = 'http://localhost:3000/main.js'
-  @Input() dataToChild: string;
-  @Output() dataFromChild = new EventEmitter<string>()
-  listOfData: string[] = [];
+  link: string = environment.childUrl;
+  @Input() data: string;
+  
 
-  dataToParent($event: CustomEvent) {
-    this.dataFromChild.emit($event.detail);
-  }
 }

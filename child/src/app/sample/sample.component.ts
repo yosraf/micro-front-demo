@@ -1,32 +1,16 @@
-import {Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges} from '@angular/core';
-
+import {Component, Input, OnInit, OnChanges,SimpleChanges} from '@angular/core';
 @Component({
   selector: 'app-sample',
-  template: `
-  <div style="border: blue solid 1px">
-    <p>Data from Parent: {{dataFromParent}}</p>
-    <input [(ngModel)]="input" [value]="input" (keydown.enter)="send()">
-  </div>
-  `,
+  templateUrl: './sample.component.html',
   styles: []
 })
-@Component({
-  selector: 'app-sample',
-  template: `
-  <div style="border: blue solid 1px">
-    <p>Data from Parent: {{dataFromParent}}</p>
-    <input [(ngModel)]="input" [value]="input" (keydown.enter)="send()">
-  </div>
-  `,
-  styles: []
-})
-export class SampleComponent {
-  @Input() dataFromParent: string;
-  @Output() emitDataToParent = new EventEmitter<string>();
-  input: string;
-  constructor() { }
-
-  send() {
-    this.emitDataToParent.emit(this.input)
-    this.input = '';
-  }}
+export class SampleComponent  implements OnInit,OnChanges{
+  @Input() data: string;
+  constructor() {
+    
+   }
+  ngOnChanges(changes: SimpleChanges) {
+  }
+  ngOnInit() {
+  }
+}

@@ -7,9 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'parent';
-  data: any = 'something from parent!';
+  data: string = 'list';
 
-  getDataBack($event: string) {
-    console.log($event)
-  }
 }

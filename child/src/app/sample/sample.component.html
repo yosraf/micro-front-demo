@@ -1,0 +1,8 @@
+<div *ngIf=" data !== 'undefined' && data === 'list' else empty;">
+    <ul>
+        <li><h2>displaying list</h2></li>
+    </ul>
+</div>
+<ng-template #empty>
+    <h2>hello from the child component</h2>
+</ng-template>
